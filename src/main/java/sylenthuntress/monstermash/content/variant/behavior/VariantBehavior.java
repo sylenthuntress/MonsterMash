@@ -1,4 +1,4 @@
-package sylenthuntress.monstermash.content.variant;
+package sylenthuntress.monstermash.content.variant.behavior;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.Entity;

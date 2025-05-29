@@ -2,8 +2,8 @@ package sylenthuntress.monstermash.registry;
 
 import net.minecraft.registry.Registry;
 import sylenthuntress.monstermash.MonsterMash;
-import sylenthuntress.monstermash.content.variant.VariantBehavior;
 import sylenthuntress.monstermash.content.variant.behavior.ReaperVariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
 
 public class MobVariants {
     public static final VariantBehavior REAPER = register("reaper", new ReaperVariantBehavior());

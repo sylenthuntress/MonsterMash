@@ -3,7 +3,7 @@ package sylenthuntress.monstermash.registry;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import sylenthuntress.monstermash.content.variant.VariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
 
 public class ModRegistries {
     public static Registry<VariantBehavior> VARIANT_BEHAVIORS = registerSimple(ModRegistryKeys.VARIANT_BEHAVIORS);
