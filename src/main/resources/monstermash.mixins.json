@@ -4,8 +4,9 @@
   "package": "sylenthuntress.monstermash.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
-  "server": [],
+  "server": [
+    "Mixin_LivingEntity"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

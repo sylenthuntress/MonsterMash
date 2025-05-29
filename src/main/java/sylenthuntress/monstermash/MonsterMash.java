@@ -4,6 +4,9 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sylenthuntress.monstermash.registry.MobVariants;
+import sylenthuntress.monstermash.registry.ModAttachmentTypes;
+import sylenthuntress.monstermash.registry.ModRegistries;
 
 public class MonsterMash implements ModInitializer {
     public static final String MOD_ID = "monstermash";
@@ -16,5 +19,9 @@ public class MonsterMash implements ModInitializer {
 
     public void onInitialize() {
         MonsterMash.LOGGER.info(MOD_NAME + " successfully loaded!");
+
+        ModRegistries.registerAll();
+        MobVariants.registerAll();
+        ModAttachmentTypes.registerAll();
     }
 }
