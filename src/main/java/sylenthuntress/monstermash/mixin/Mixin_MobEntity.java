@@ -17,15 +17,14 @@ import sylenthuntress.monstermash.util.VariantHelper;
 @Mixin(MobEntity.class)
 public class Mixin_MobEntity {
     @WrapMethod(method = "tryAttack")
-    public boolean onHitVariant(ServerWorld world, Entity target, Operation<Void> original) {
+    public boolean onHitVariant(ServerWorld world, Entity target, Operation<Boolean> original) {
         LivingEntity _this = (LivingEntity) (Object) this;
         MobVariant variant = VariantHelper.getVariant(_this);
         if (variant != null) {
             return variant.behavior().tryAttack(world, _this, target, original);
         }
 
-        original.call(world, target);
-        return true;
+        return original.call(world, target);
     }
 
     @Inject(

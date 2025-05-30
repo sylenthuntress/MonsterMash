@@ -14,11 +14,9 @@ public interface VariantBehavior {
 
     /**
      * Override to inject custom behavior into the tryAttack action of this variant.
-     * Return false to override normal behavior.
      */
-    default boolean tryAttack(ServerWorld world, LivingEntity attacker, Entity target, Operation<Void> original) {
-        original.call(world, target);
-        return true;
+    default boolean tryAttack(ServerWorld world, LivingEntity attacker, Entity target, Operation<Boolean> original) {
+        return original.call(world, target);
     }
 
     default void afterAttack(ServerWorld world, LivingEntity attacker, Entity target, float amount) {
