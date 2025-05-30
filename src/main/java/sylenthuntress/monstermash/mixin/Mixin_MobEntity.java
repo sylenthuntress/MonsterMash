@@ -7,11 +7,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import sylenthuntress.monstermash.content.variant.MobVariant;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.type.AttackingVariantBehavior;
 import sylenthuntress.monstermash.util.VariantHelper;
 
 @Mixin(MobEntity.class)
@@ -21,7 +24,19 @@ public class Mixin_MobEntity {
         LivingEntity _this = (LivingEntity) (Object) this;
         MobVariant variant = VariantHelper.getVariant(_this);
         if (variant != null) {
-            return variant.behavior().tryAttack(world, _this, target, original);
+            for (VariantBehavior behavior : variant.behavior()) {
+                if (behavior instanceof AttackingVariantBehavior attackingBehavior) {
+                    ActionResult result = attackingBehavior.tryAttack(world, _this, target);
+                    if (result == ActionResult.FAIL) {
+                        return false;
+                    }
+
+                    if (result == ActionResult.SUCCESS) {
+                        original.call(world, target);
+                        return true;
+                    }
+                }
+            }
         }
 
         return original.call(world, target);
@@ -35,7 +50,11 @@ public class Mixin_MobEntity {
         LivingEntity _this = (LivingEntity) (Object) this;
         MobVariant variant = VariantHelper.getVariant(_this);
         if (variant != null) {
-            variant.behavior().afterAttack(world, _this, target, amount);
+            for (VariantBehavior behavior : variant.behavior()) {
+                if (behavior instanceof AttackingVariantBehavior attackingBehavior) {
+                    attackingBehavior.afterAttack(world, _this, target, amount);
+                }
+            }
         }
     }
 }
