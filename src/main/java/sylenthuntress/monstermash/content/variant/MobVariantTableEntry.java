@@ -35,4 +35,8 @@ public record MobVariantTableEntry(RegistryEntry<MobVariant> variant, int weight
 
         return condition.get().test(lootContext);
     }
+
+    public static MobVariantTableEntry getEmpty(int weight) {
+        return new MobVariantTableEntry(null, weight, Optional.empty());
+    }
 }

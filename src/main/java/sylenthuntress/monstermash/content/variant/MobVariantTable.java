@@ -27,7 +27,7 @@ public record MobVariantTable(TagEntry entity, int baseWeight, List<MobVariantTa
 
     @SuppressWarnings("deprecation")
     public boolean includes(Entity entity) {
-        String entryString = entity.toString().replaceAll("[?]", "");
+        String entryString = entity().toString().replaceAll("[?]", "");
         EntityType<?> entityType = entity.getType();
 
         return entryString.contains("#")

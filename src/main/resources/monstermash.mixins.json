@@ -4,7 +4,7 @@
   "package": "sylenthuntress.monstermash.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "server": [
+  "mixins": [
     "Mixin_EntityType",
     "Mixin_MobEntity"
   ],

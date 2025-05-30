@@ -11,6 +11,10 @@ public class VariantHelper {
     }
 
     public static void setVariant(LivingEntity entity, MobVariant variant) {
+        if (variant == null) {
+            return;
+        }
+
         entity.setAttached(ModAttachmentTypes.MOB_VARIANT, variant);
     }
 }

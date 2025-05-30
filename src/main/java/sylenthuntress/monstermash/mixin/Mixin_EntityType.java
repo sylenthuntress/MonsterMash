@@ -42,6 +42,8 @@ public class Mixin_EntityType<T extends Entity> {
 
             List<MobVariantTableEntry> entries = new ArrayList<>(
                     table.entries().stream().filter(entry -> entry.test(entity)).toList());
+            entries.add(MobVariantTableEntry.getEmpty(table.baseWeight()));
+
             int totalWeight = entries.stream().mapToInt(MobVariantTableEntry::weight).sum();
 
             int tableSize = entries.size();
