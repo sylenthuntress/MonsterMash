@@ -1,5 +1,8 @@
 {
-  "behavior": {
-    "type": "monstermash:reaper"
-  }
+  "behavior": [
+    {
+      "type": "monstermash:heal_on_hit",
+      "lifesteal_ratio": 0.0
+    }
+  ]
 }
