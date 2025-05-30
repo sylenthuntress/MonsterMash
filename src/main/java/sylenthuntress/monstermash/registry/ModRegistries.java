@@ -9,9 +9,11 @@ import net.minecraft.registry.RegistryKey;
 import sylenthuntress.monstermash.content.variant.MobVariant;
 import sylenthuntress.monstermash.content.variant.MobVariantTable;
 import sylenthuntress.monstermash.content.variant.behavior.VariantBehaviorType;
+import sylenthuntress.monstermash.content.variant.behavior.action.VariantActionType;
 
 public class ModRegistries {
     public static Registry<VariantBehaviorType> VARIANT_BEHAVIOR_TYPES = registerSimple(ModRegistryKeys.VARIANT_BEHAVIOR_TYPES);
+    public static Registry<VariantActionType> VARIANT_ACTION_TYPES = registerSimple(ModRegistryKeys.VARIANT_ACTION_TYPES);
     public static RegistryKey<Registry<MobVariant>> MOB_VARIANTS = registerDynamic(ModRegistryKeys.MOB_VARIANTS, MobVariant.CODEC);
     public static RegistryKey<Registry<MobVariantTable>> MOB_VARIANT_TABLES = registerDynamic(ModRegistryKeys.MOB_VARIANT_TABLES, MobVariantTable.CODEC);
 

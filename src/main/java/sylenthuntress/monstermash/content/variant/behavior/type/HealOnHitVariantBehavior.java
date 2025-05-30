@@ -16,7 +16,7 @@ public record HealOnHitVariantBehavior(NumberRange.DoubleRange healAmount,
     public static final MapCodec<HealOnHitVariantBehavior> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
                     NumberRange.DoubleRange.CODEC.optionalFieldOf("heal_amount", NumberRange.DoubleRange.ANY).forGetter(HealOnHitVariantBehavior::healAmount),
-                    Codec.FLOAT.optionalFieldOf("lifesteal_ratio", 1.0F).forGetter(HealOnHitVariantBehavior::lifestealRatio)
+                    Codec.FLOAT.optionalFieldOf("lifesteal_ratio", 0.0F).forGetter(HealOnHitVariantBehavior::lifestealRatio)
             ).apply(instance, HealOnHitVariantBehavior::new)
     );
 

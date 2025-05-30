@@ -7,10 +7,15 @@ import sylenthuntress.monstermash.MonsterMash;
 import sylenthuntress.monstermash.content.variant.MobVariant;
 import sylenthuntress.monstermash.content.variant.MobVariantTable;
 import sylenthuntress.monstermash.content.variant.behavior.VariantBehaviorType;
+import sylenthuntress.monstermash.content.variant.behavior.action.VariantActionType;
 
 public class ModRegistryKeys {
     public static RegistryKey<Registry<VariantBehaviorType>> VARIANT_BEHAVIOR_TYPES = RegistryKey.ofRegistry(
             MonsterMash.modIdentifier("variant_behavior_type")
+    );
+
+    public static RegistryKey<Registry<VariantActionType>> VARIANT_ACTION_TYPES = RegistryKey.ofRegistry(
+            MonsterMash.modIdentifier("variant_action_type")
     );
 
     public static RegistryKey<Registry<MobVariant>> MOB_VARIANTS = RegistryKey.ofRegistry(
