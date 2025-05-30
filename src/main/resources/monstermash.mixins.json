@@ -6,7 +6,7 @@
   "compatibilityLevel": "JAVA_18",
   "server": [
     "Mixin_EntityType",
-    "Mixin_LivingEntity"
+    "Mixin_MobEntity"
   ],
   "injectors": {
     "defaultRequire": 1

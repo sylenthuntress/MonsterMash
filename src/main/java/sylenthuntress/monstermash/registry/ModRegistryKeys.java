@@ -6,11 +6,11 @@ import net.minecraft.util.Identifier;
 import sylenthuntress.monstermash.MonsterMash;
 import sylenthuntress.monstermash.content.variant.MobVariant;
 import sylenthuntress.monstermash.content.variant.MobVariantTable;
-import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehaviorType;
 
 public class ModRegistryKeys {
-    public static RegistryKey<Registry<VariantBehavior>> VARIANT_BEHAVIORS = RegistryKey.ofRegistry(
-            MonsterMash.modIdentifier("variant_behavior")
+    public static RegistryKey<Registry<VariantBehaviorType>> VARIANT_BEHAVIOR_TYPES = RegistryKey.ofRegistry(
+            MonsterMash.modIdentifier("variant_behavior_type")
     );
 
     public static RegistryKey<Registry<MobVariant>> MOB_VARIANTS = RegistryKey.ofRegistry(
