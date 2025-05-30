@@ -35,6 +35,10 @@ public class Mixin_EntityType<T extends Entity> {
             return;
         }
 
+        if (reason == SpawnReason.SPAWNER) {
+            return;
+        }
+
         for (MobVariantTable table : tables) {
             if (!table.includes(entity)) {
                 continue;
