@@ -1,12 +1,14 @@
 package sylenthuntress.monstermash.content.variant.behavior.action;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.context.ContextParameter;
 import net.minecraft.util.context.ContextParameterMap;
 import net.minecraft.util.context.ContextType;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.include.com.google.common.collect.Lists;
 import sylenthuntress.monstermash.MonsterMash;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class ActionContext {
             .allow(ContextParameters.TARGET_ENTITY)
             .allow(ContextParameters.ORIGIN_POS)
             .allow(ContextParameters.TARGET_POS)
+            .allow(ContextParameters.BEHAVIOR_ENTRY)
             .build();
 
     private final ContextParameterMap parameters;
@@ -88,6 +91,7 @@ public class ActionContext {
         public static final ContextParameter<Entity> TARGET_ENTITY = of("entity/target");
         public static final ContextParameter<Vec3d> ORIGIN_POS = of("pos/origin");
         public static final ContextParameter<Vec3d> TARGET_POS = of("pos/target");
+        public static final ContextParameter<RegistryEntry<VariantBehavior>> BEHAVIOR_ENTRY = of("behavior_entry");
 
         private static <T> ContextParameter<T> of(String id) {
             ContextParameter<T> parameter = new ContextParameter<>(MonsterMash.modIdentifier(id));
