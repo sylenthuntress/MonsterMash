@@ -17,6 +17,7 @@ public class MonsterMash implements ModInitializer {
         return Identifier.of(MOD_ID, id);
     }
 
+    @Override
     public void onInitialize() {
         MonsterMash.LOGGER.info(MOD_NAME + " successfully loaded!");
 

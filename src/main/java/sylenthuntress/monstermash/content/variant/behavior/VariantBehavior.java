@@ -23,4 +23,9 @@ public interface VariantBehavior {
     }
 
     VariantBehaviorType getType();
+
+    @FunctionalInterface
+    interface Builder {
+        VariantBehavior build();
+    }
 }

@@ -1,0 +1,10 @@
+{
+  "base_weight": 10,
+  "entity": "#minecraft:skeletons",
+  "table": [
+    {
+      "variant": "monstermash:reaper",
+      "weight": 10
+    }
+  ]
+}

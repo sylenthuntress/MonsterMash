@@ -1,4 +1,4 @@
-package sylenthuntress.monstermash.content.variant.behavior;
+package sylenthuntress.monstermash.content.variant.behavior.type;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -6,6 +6,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.VariantBehaviorType;
 import sylenthuntress.monstermash.registry.VariantBehaviorTypes;
 
 public record ReaperVariantBehavior(float lifestealRatio) implements VariantBehavior {
@@ -23,5 +25,23 @@ public record ReaperVariantBehavior(float lifestealRatio) implements VariantBeha
     @Override
     public VariantBehaviorType getType() {
         return VariantBehaviorTypes.REAPER;
+    }
+
+    public static Builder create() {
+        return new Builder();
+    }
+
+    public static class Builder implements VariantBehavior.Builder {
+        private float lifestealRatio = 1.0F;
+
+        public Builder setLifestealRatio(float newRatio) {
+            this.lifestealRatio = newRatio;
+            return this;
+        }
+
+        @Override
+        public VariantBehavior build() {
+            return new ReaperVariantBehavior(lifestealRatio);
+        }
     }
 }
