@@ -4,25 +4,25 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import sylenthuntress.monstermash.codec.ModCodecs;
 import sylenthuntress.monstermash.content.variant.behavior.action.ActionContext;
-import sylenthuntress.monstermash.content.variant.behavior.data.supplier.number.NumberDataSupplier;
-import sylenthuntress.monstermash.content.variant.behavior.data.supplier.number.NumberDataSupplierType;
+import sylenthuntress.monstermash.content.variant.behavior.data.supplier.number.NumberSupplier;
+import sylenthuntress.monstermash.content.variant.behavior.data.supplier.number.NumberSupplierType;
 import sylenthuntress.monstermash.registry.DataSupplierTypes;
 
-public class ConstantNumberDataSupplier extends NumberDataSupplier {
-    public static final MapCodec<ConstantNumberDataSupplier> CODEC = RecordCodecBuilder.mapCodec(
+public class ConstantNumberSupplier extends NumberSupplier {
+    public static final MapCodec<ConstantNumberSupplier> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
-                    ModCodecs.NUMBER.fieldOf("value").forGetter(ConstantNumberDataSupplier::getValue)
-            ).apply(instance, ConstantNumberDataSupplier::new)
+                    ModCodecs.NUMBER.fieldOf("value").forGetter(ConstantNumberSupplier::getValue)
+            ).apply(instance, ConstantNumberSupplier::new)
     );
 
-    private final Number value;
+    public final Number value;
 
-    public ConstantNumberDataSupplier(Number value) {
+    public ConstantNumberSupplier(Number value) {
         this.value = value;
     }
 
     @Override
-    public NumberDataSupplierType getType() {
+    public NumberSupplierType getType() {
         return DataSupplierTypes.CONSTANT_NUMBER;
     }
 

@@ -44,6 +44,10 @@ public class ActionContext {
         return builder;
     }
 
+    public Entity getOriginEntity() {
+        return parameters.getOrThrow(ContextParameters.ORIGIN_ENTITY);
+    }
+
     public Entity getTargetEntity() {
         return parameters.getOrDefault(
                 ContextParameters.TARGET_ENTITY,

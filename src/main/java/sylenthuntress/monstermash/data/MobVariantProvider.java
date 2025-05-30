@@ -8,7 +8,9 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import sylenthuntress.monstermash.MonsterMash;
 import sylenthuntress.monstermash.content.variant.MobVariant;
-import sylenthuntress.monstermash.content.variant.behavior.type.HealOnHitVariantBehavior;
+import sylenthuntress.monstermash.content.variant.behavior.action.type.HealVariantAction;
+import sylenthuntress.monstermash.content.variant.behavior.data.supplier.number.type.LastDamageDealtNumberSupplier;
+import sylenthuntress.monstermash.content.variant.behavior.type.ActionOnHitVariantBehavior;
 import sylenthuntress.monstermash.registry.ModRegistryKeys;
 
 import java.util.concurrent.CompletableFuture;
@@ -26,7 +28,9 @@ public class MobVariantProvider extends FabricDynamicRegistryProvider {
 
     public static void bootstrapEntries(Registerable<MobVariant> registerable) {
         Variants.REAPER = registerable.register(registryKey("reaper"),
-                MobVariant.create().addBehavior(HealOnHitVariantBehavior.create()).build()
+                MobVariant.create().addBehavior(
+                        new ActionOnHitVariantBehavior(new HealVariantAction(new LastDamageDealtNumberSupplier(1.0F)))
+                ).build()
         );
     }
 

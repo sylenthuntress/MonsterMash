@@ -4,9 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sylenthuntress.monstermash.registry.ModAttachmentTypes;
-import sylenthuntress.monstermash.registry.ModRegistries;
-import sylenthuntress.monstermash.registry.VariantBehaviorTypes;
+import sylenthuntress.monstermash.registry.*;
 
 public class MonsterMash implements ModInitializer {
     public static final String MOD_ID = "monstermash";
@@ -23,6 +21,9 @@ public class MonsterMash implements ModInitializer {
 
         ModRegistries.registerAll();
         VariantBehaviorTypes.registerAll();
+        VariantActionTypes.registerAll();
+        VariantDataTypes.registerAll();
+        DataSupplierTypes.registerAll();
         ModAttachmentTypes.registerAll();
     }
 }

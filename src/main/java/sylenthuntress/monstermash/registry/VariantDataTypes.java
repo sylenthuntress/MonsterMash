@@ -12,7 +12,7 @@ public class VariantDataTypes {
     public static final VariantDataType NUMBER = register("number", NumberVariantData.CODEC);
     public static final VariantDataType STRING = register("string", StringVariantData.CODEC);
 
-    public static VariantDataType register(String id, MapCodec<? extends VariantData<?>> codec) {
+    private static VariantDataType register(String id, MapCodec<? extends VariantData<?>> codec) {
         return Registry.register(ModRegistries.VARIANT_DATA_TYPES, MonsterMash.modIdentifier(id), new VariantDataType(codec));
     }
 

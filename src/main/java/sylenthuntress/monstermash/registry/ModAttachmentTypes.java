@@ -14,10 +14,16 @@ import java.util.Map;
 
 @SuppressWarnings("UnstableApiUsage")
 public class ModAttachmentTypes {
+    public static AttachmentType<Float> LAST_DAMAGE_DEALT = AttachmentRegistry.create(
+            MonsterMash.modIdentifier("last_damage_dealt"),
+            builder -> builder
+                    .persistent(Codec.FLOAT)
+                    .copyOnDeath()
+    );
+
     public static AttachmentType<MobVariant> MOB_VARIANT = AttachmentRegistry.create(
             MonsterMash.modIdentifier("mob_variant"),
             builder -> builder
-                    .initializer(() -> null)
                     .persistent(MobVariant.CODEC)
                     .copyOnDeath()
     );

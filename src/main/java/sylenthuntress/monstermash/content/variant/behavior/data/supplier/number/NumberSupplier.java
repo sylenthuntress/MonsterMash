@@ -5,10 +5,10 @@ import sylenthuntress.monstermash.content.variant.behavior.action.ActionContext;
 import sylenthuntress.monstermash.content.variant.behavior.data.supplier.DataSupplier;
 import sylenthuntress.monstermash.registry.ModRegistries;
 
-public abstract class NumberDataSupplier implements DataSupplier<Number> {
-    public static final Codec<NumberDataSupplier> CODEC = ModRegistries.NUMBER_DATA_SUPPLIER_TYPES
+public abstract class NumberSupplier implements DataSupplier<Number> {
+    public static final Codec<NumberSupplier> CODEC = ModRegistries.NUMBER_SUPPLIER_TYPES
             .getCodec()
-            .dispatch(NumberDataSupplier::getType, NumberDataSupplierType::codec);
+            .dispatch(NumberSupplier::getType, NumberSupplierType::codec);
 
     public int intValue(ActionContext context) {
         return getValue(context).intValue();
@@ -30,5 +30,5 @@ public abstract class NumberDataSupplier implements DataSupplier<Number> {
         return getValue(context).byteValue();
     }
 
-    public abstract NumberDataSupplierType getType();
+    public abstract NumberSupplierType getType();
 }

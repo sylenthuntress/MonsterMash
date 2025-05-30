@@ -10,7 +10,7 @@ import sylenthuntress.monstermash.content.variant.behavior.action.type.HealVaria
 public class VariantActionTypes {
     public static final VariantActionType HEAL = register("heal", HealVariantAction.CODEC);
 
-    public static VariantActionType register(String id, MapCodec<? extends VariantAction> codec) {
+    private static VariantActionType register(String id, MapCodec<? extends VariantAction> codec) {
         return Registry.register(ModRegistries.VARIANT_ACTION_TYPES, MonsterMash.modIdentifier(id), new VariantActionType(codec));
     }
 

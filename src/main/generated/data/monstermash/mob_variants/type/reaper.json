@@ -1,8 +1,13 @@
 {
   "behavior": [
     {
-      "type": "monstermash:heal_on_hit",
-      "lifesteal_ratio": 0.0
+      "type": "monstermash:action_on_hit",
+      "action": {
+        "type": "monstermash:heal",
+        "heal_amount": {
+          "type": "monstermash:last_damage_dealt"
+        }
+      }
     }
   ]
 }
